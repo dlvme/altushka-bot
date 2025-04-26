@@ -2,7 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const port = 3000;
+
+// Используем порт из переменной окружения или 3000 по умолчанию
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -39,5 +41,5 @@ app.post('/webhook', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`API-сервер работает на порту ${port}`);
+  console.log(`Альтушка онлайн на порту ${port}!`);
 });
