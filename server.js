@@ -8,12 +8,16 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Получаем API ключ
+const HF_API_KEY = process.env.HF_API_KEY;
+
+// Логирование API ключа для проверки
+console.log('HF_API_KEY:', HF_API_KEY);  // Это поможет проверить правильность загрузки переменной
+
 // Обработка GET-запроса для корневого маршрута
 app.get('/', (req, res) => {
   res.send('API работает!');
 });
-
-const HF_API_KEY = process.env.HF_API_KEY;
 
 app.post('/webhook', async (req, res) => {
   // Логирование входящего запроса
